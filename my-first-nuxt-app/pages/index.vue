@@ -3,6 +3,9 @@
     <nuxt-link to="/users">
       users
     </nuxt-link>
+    <button @click="$router.push(`/products`)">
+      Go to products
+    </button>
   </section>
 </template>
 
