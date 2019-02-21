@@ -2,7 +2,9 @@
   <div>
     <h1>this is the users' page</h1>
     <input v-model="userId" type="text">
-    <button @click="onLoadUser">Load user</button>
+    <button @click="onLoadUser">
+      Load user
+    </button>
     <nuxt-child />
   </div>
 </template>

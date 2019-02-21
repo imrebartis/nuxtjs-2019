@@ -1,9 +1,8 @@
 <template>
   <div>
-    <header>Users section</header>
-    <nuxt/>
+    <header>
+      Users section
+    </header>
+    <nuxt />
   </div>
 </template>
-
-<style>
-</style>
