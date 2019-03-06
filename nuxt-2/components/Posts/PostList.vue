@@ -1,3 +1,4 @@
+    <!-- eslint-disable -->
 <template>
   <section class="post-list">
     <PostPreview
