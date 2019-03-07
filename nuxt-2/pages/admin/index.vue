@@ -9,7 +9,7 @@
       <h1>
         Existing posts
       </h1>
-      <PostList />
+      <PostList isAdmin />
     </section>
   </div>
 </template>
