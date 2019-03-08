@@ -1,9 +1,9 @@
 <template>
   <div class="admin-page">
     <section class="new-post">
-      <button @click="$router.push('/new-post')">
+      <AppButton @click="$router.push('/new-post')">
         Create post
-      </button>
+      </AppButton>
     </section>
     <section class="existing-posts">
       <h1>
@@ -16,9 +16,12 @@
 
 <script>
 import PostList from '@/components/Posts/PostList'
+import AppButton from '@/components/UI/AppButton'
+
 export default {
   components: {
-    PostList
+    PostList,
+    AppButton
   }
 }
 </script>
