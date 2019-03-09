@@ -1,8 +1,22 @@
 <template>
-  <h1>
-    The page you're looking for doesn't exist. Perhaps you'd like to return to the
-    <nuxt-link to="/">
-      homepage
-    </nuxt-link>?
-  </h1>
+  <div class="error-page">
+    <h1>Oops, something went wrong!</h1>
+    <p>Back to <a href="/">homepage</a>!</p>
+  </div>
 </template>
+
+<style scoped>
+.error-page {
+  text-align: center;
+}
+
+.error-page a {
+  text-decoration: none;
+  color: red;
+}
+
+.error-page a:hover,
+.error-page a:active {
+  color: salmon;
+}
+</style>
