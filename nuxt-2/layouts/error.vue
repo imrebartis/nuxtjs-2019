@@ -1,7 +1,12 @@
 <template>
   <div class="error-page">
     <h1>Oops, something went wrong!</h1>
-    <p>Back to <a href="/">homepage</a>!</p>
+    <p>
+      Back to
+      <a href="/">
+        homepage
+      </a>!
+    </p>
   </div>
 </template>
 
