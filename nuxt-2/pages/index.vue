@@ -16,29 +16,10 @@ export default {
   components: {
     PostList
   },
-  asyncData(context, callback) {
-    // asyncData is executed on the server (fixes SEO problem)
-    // NB: works only in pages files
-    setTimeout(() => {
-      callback(null, {
-        loadedPosts: [
-          {
-            id: '1',
-            title: 'first post',
-            previewText: 'first post yo',
-            thumbnail:
-              'https://static.techspot.com/images2/news/bigimage/2018/07/2018-07-10-image-35.jpg'
-          },
-          {
-            id: '2',
-            title: 'second post',
-            previewText: '2nd post yo',
-            thumbnail:
-              'https://static.techspot.com/images2/news/bigimage/2018/07/2018-07-10-image-35.jpg'
-          }
-        ]
-      })
-    }, 1500)
+  computed: {
+    loadedPosts() {
+      return this.$store.getters.loadedPosts
+    }
   }
 }
 </script>
