@@ -30,22 +30,22 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
-  asyncData(context, callback) {
-    setTimeout(() => {
-      callback(null, {
-        loadedPost: {
-          id: '1',
-          title: 'first post (ID: ' + context.route.params.id + ')',
-          previewText: 'first post yo',
-          author: 'Ludovic the Great',
-          updatedDate: new Date(),
-          content: 'Something else then the preview',
-          thumbnail:
-            'https://static.techspot.com/images2/news/bigimage/2018/07/2018-07-10-image-35.jpg'
+  asyncData(context) {
+    return axios
+      .get(
+        'https://nuxt-blog-ded82.firebaseio.com/posts/' +
+          context.params.id +
+          '.json'
+      )
+      .then(res => {
+        return {
+          loadedPost: res.data
         }
       })
-    }, 1000)
+      .catch(e => context.error(e))
   }
 }
 </script>
