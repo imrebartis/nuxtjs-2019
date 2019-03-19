@@ -8,11 +8,25 @@
 
 <script>
 import AdminPostForm from '@/components/Admin/AdminPostForm'
+import axios from 'axios'
 
 export default {
   layout: 'admin',
   components: {
     AdminPostForm
+  },
+  methods: {
+    onSubmitted(postData) {
+      axios
+        .post('https://nuxt-blog-ded82.firebaseio.com/posts/', {
+          ...postData,
+          updatedDate: new Date()
+        })
+        .then(res => {
+          this.$router.push('/admin')
+        })
+        .catch(e => console.log(e))
+    }
   }
 }
 </script>

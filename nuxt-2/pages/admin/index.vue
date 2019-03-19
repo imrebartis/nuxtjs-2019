@@ -11,7 +11,8 @@
       </h1>
       <PostList
         isAdmin
-        :posts="loadedPosts" />
+        :posts="loadedPosts"
+      />
     </section>
   </div>
 </template>
