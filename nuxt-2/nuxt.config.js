@@ -28,8 +28,17 @@ module.exports = {
   /*
   ** Customize the progress-bar color
   */
-  loading: { color: '#fff' },
-
+  loading: {
+    color: '#fa923f',
+    failedColor: 'yellow',
+    height: '4px',
+    duration: 5000
+  },
+  // use this only when mode is SPA (it's a spinner):
+  // loadingIndicator: {
+  //   name: 'circle',
+  //   color: '#fa923f'
+  // },
   /*
   ** Global CSS
   */
