@@ -72,5 +72,8 @@ module.exports = {
         })
       }
     }
+  },
+  env: {
+    baseUrl: process.env.BASE_URL || 'https://nuxt-blog-ded82.firebaseio.com'
   }
 }
