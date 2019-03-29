@@ -1,7 +1,7 @@
 <template>
   <div class="admin-page">
     <section class="new-post">
-      <AppButton @click="$router.push('/new-post')">
+      <AppButton @click="$router.push('/admin/new-post')">
         Create post
       </AppButton>
     </section>
@@ -19,6 +19,7 @@
 
 <script>
 export default {
+  layout: 'admin',
   computed: {
     loadedPosts() {
       return this.$store.getters.loadedPosts
