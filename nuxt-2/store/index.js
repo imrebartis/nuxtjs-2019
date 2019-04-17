@@ -64,7 +64,7 @@ const createStore = () => {
         return axios
           .put(
             process.env.baseUrl +
-              '/posts' +
+              '/posts/' +
               editedPost.id +
               '.json?auth=' +
               vuexContext.state.token,
@@ -95,18 +95,18 @@ const createStore = () => {
           })
           .then(result => {
             vuexContext.commit('setToken', result.data.idToken)
-            localStorage.setItem('token', result.idToken)
+            localStorage.setItem('token', result.data.idToken)
             localStorage.setItem(
               'tokenExpiration',
-              new Date().getTime() + +result.expiresIn * 1000 // +result.expiresIn: the + turns the string into a number
+              new Date().getTime() + +result.data.expiresIn * 1000 // +result.expiresIn: the + turns the string into a number
             )
-            Cookie.set('jwt', result.idToken)
+            Cookie.set('jwt', result.data.idToken)
             Cookie.set(
               'expirationDate',
-              new Date().getTime() + +result.expiresIn * 1000
+              new Date().getTime() + +result.data.expiresIn * 1000
             )
           })
-          .catch(e => console.log(e.response.data.error.message))
+          .catch(e => console.log(e.result.data.error.message))
       },
       initAuth(vuexContext, req) {
         let token
@@ -132,9 +132,19 @@ const createStore = () => {
         if (new Date().getTime() > +expirationDate || !token) {
           console.log('No token or invalid token')
           vuexContext.commit('clearToken')
+          vuexContext.dispatch('logout')
           return
         }
         vuexContext.commit('setToken', token)
+      },
+      logout(vuexContext) {
+        vuexContext.commit('clearToken')
+        Cookie.remove('jwt')
+        Cookie.remove('expirationDate')
+        if (process.client) {
+          localStorage.removeItem('token')
+          localStorage.removeItem('tokenExpiration')
+        }
       }
     },
     getters: {
