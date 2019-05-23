@@ -12,10 +12,10 @@
   },
   "dependencies": {
     "cross-env": "^5.2.0",
-    "nuxt": "^2.4.0",
-    "express": "^4.16.4"
+    "express": "^4.17.0",
+    "nuxt": "^2.7.1"
   },
   "devDependencies": {
-    "nodemon": "^1.18.9"
+    "nodemon": "^1.19.0"
   }
 }
